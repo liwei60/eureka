@@ -4,8 +4,12 @@ server:
 eureka:
   instance:
     hostname : localhost
+    prefer-ip-address: true #以IP地址注册到服务中心，相互注册使用IP地址
   client:
-    registerWithEureka : false
-    fetchRegistry : false
+    registerWithEureka : true
+    fetchRegistry : true
     serviceUrl:
-      defaultZone : http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone : http://localhost:9761/eureka/
+spring:
+  application:
+    name : eurekasvc
